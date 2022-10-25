@@ -140,7 +140,14 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        //Programkode 5.1.7 h)
+        while (true) {
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return p;
+        }
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
@@ -168,9 +175,15 @@ public class SBinTre<T> {
     }
 
     public static void main(String[] args) {
-        Integer[] a = {4,7,2,9,5,10,8,1,3,6};
+        Integer[] a = {4,7,2,9,4,10,8,7,4,6};
         SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
-        for (int verdi : a) {tre.leggInn(verdi); }
-        System.out.println(tre.antall());  // Utskrift: 10
+        for (int verdi : a) { tre.leggInn(verdi); }
+
+        System.out.println(tre.antall());      // Utskrift: 10
+        System.out.println(tre.antall(5));     // Utskrift: 0
+        System.out.println(tre.antall(4));     // Utskrift: 3
+        System.out.println(tre.antall(7));     // Utskrift: 2
+        System.out.println(tre.antall(10));    // Utskrift: 1
     }
+
 } // ObligSBinTre
