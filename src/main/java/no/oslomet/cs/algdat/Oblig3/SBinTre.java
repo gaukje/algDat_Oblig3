@@ -1,10 +1,7 @@
 package no.oslomet.cs.algdat.Oblig3;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class SBinTre<T> {
     private static final class Node<T>   // en indre nodeklasse
@@ -100,7 +97,7 @@ public class SBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<>(verdi,null, null, q);                   // oppretter en ny node
+        p = new Node<>(verdi, q);                   // oppretter en ny node
 
         if (q == null) rot = p;                  // p blir rotnode
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
@@ -118,7 +115,24 @@ public class SBinTre<T> {
     }
 
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (tom()|| verdi == null) return 0;
+
+        int antall = 0;
+        Node<T> p = rot;
+
+        while (p != null) {
+
+            if (p.verdi.equals(verdi)) {
+                antall++;
+                p = p.høyre;
+            }
+            else {
+                p = comp.compare(verdi, p.verdi) < 0 ? p.venstre : p.høyre;
+            }
+        }
+        return antall;
+
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     public void nullstill() {
