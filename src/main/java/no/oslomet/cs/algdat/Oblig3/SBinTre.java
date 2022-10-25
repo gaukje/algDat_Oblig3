@@ -151,7 +151,26 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        /*
+
+    Hvis p ikke har en forelder (p er rotnoden), så er p den siste i postorden.
+    Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+    Hvis p er venstre barn til sin forelder f, gjelder:
+        Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+        Hvis p ikke er enebarn (dvs. f.høyre er ikke null), så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+
+         */
+        Node<T> forelder = p.forelder;
+
+        //if (forelder == null) return null;
+
+        if (p == forelder.høyre) return forelder;
+
+        if (p == forelder.venstre) {
+            if (p.forelder.høyre == null) return p.forelder;
+        }
+        return null;
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
