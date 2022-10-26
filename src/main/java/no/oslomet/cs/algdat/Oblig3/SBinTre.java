@@ -107,6 +107,7 @@ public class SBinTre<T> {
         return true;                             // vellykket innlegging
     }
     public boolean fjern(T verdi) {
+        //Programkode 5.2.8 d)
         if (verdi == null) return false;  // treet har ingen nullverdier
 
         Node<T> p = rot, q = null;   // q skal være forelder til p
