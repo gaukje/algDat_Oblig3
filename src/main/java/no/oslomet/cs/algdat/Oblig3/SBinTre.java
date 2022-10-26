@@ -162,7 +162,7 @@ public class SBinTre<T> {
          */
         Node<T> forelder = p.forelder;
 
-        //if (forelder == null) return null;                  //Hvis p ikke har en forelder (p er rotnoden), så er p den siste i postorden.
+        if (forelder == null) return null;                  //Hvis p ikke har en forelder (p er rotnoden), så er p den siste i postorden.
 
         if (p == forelder.høyre) return forelder;             //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
                                                                 //Hvis p er venstre barn til sin forelder f, gjelder:
