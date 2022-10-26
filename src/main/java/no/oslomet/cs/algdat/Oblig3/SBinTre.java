@@ -162,14 +162,17 @@ public class SBinTre<T> {
          */
         Node<T> forelder = p.forelder;
 
-        //if (forelder == null) return null;
+        //if (forelder == null) return null;                  //Hvis p ikke har en forelder (p er rotnoden), så er p den siste i postorden.
 
-        if (p == forelder.høyre) return forelder;
-
-        if (p == forelder.venstre) {
+        if (p == forelder.høyre) return forelder;             //Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+                                                                //Hvis p er venstre barn til sin forelder f, gjelder:
+        if (p == forelder.venstre) {                            //Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
             if (p.forelder.høyre == null) return p.forelder;
         }
-        return null;
+        return førstePostorden(forelder.høyre);
+            //Hvis p ikke er enebarn (dvs. f.høyre er ikke null),
+                                            // så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
