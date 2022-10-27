@@ -108,6 +108,7 @@ public class SBinTre<T> {
     }
     public boolean fjern(T verdi) {
         //Programkode 5.2.8 d)
+        /*
         if (verdi == null) return false;  // treet har ingen nullverdier
 
         Node<T> p = rot, q = null;   // q skal være forelder til p
@@ -145,7 +146,8 @@ public class SBinTre<T> {
 
         antall--;   // det er nå én node mindre i treet
         return true;
-        //throw new UnsupportedOperationException("Ikke kodet ennå!");
+        */
+        throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     public int fjernAlle(T verdi) {
