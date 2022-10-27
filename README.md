@@ -30,4 +30,5 @@ Deretter opprettet jeg en while-løkke som kjører så lenge p ikke er null. I l
 som en metode for å printe (som sout).
 
 Videre i postordenRecursive gikk jeg frem ved å lage et basistilfelle : if (p == null) return;
-Deretter kalles metoden selv
+Deretter kalles metoden selv med både venstre og høyre node. Den rekursive metoden vil gi samme resultat som 
+metoden postorden().
